@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    font-family: "Inter";
+}
+
+
+body{
+    margin: 0;
+    font-size: 15px;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+
+}
+
+h1{
+    font-size: 3rem;
+}
+
+
+.section-desc > h2{
+    color: hsl(233, 8%, 79%);
+}
+h2{
+    font-size: 2rem;
+}
+
+h3{
+    transition: color .2s ease;
+    cursor: pointer;
+}
+
+
+.read-more{
+    background-color: hsl(5, 85%, 63%);
+    border: none;
+    width: 170px;
+    transition: background-color .2s ease;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color:white;
+    cursor: pointer;
+}
+
+.read-more:hover{
+    background-color: hsl(240, 100%, 5%);
+}
+.hero-image{
+    object-fit: cover;
+}
+
+.hero{
+    display: grid;
+}
+
+.hero-content{
+    display:grid;
+    gap: 1em;
+}
+
+.container{
+    display:grid;
+    gap: 2rem;
+}
+
+menu{
+    grid-area: menu;
+    
+}
+
+.hero{
+    grid-area: hero;
+    display:grid;
+    gap: 1em;
+}
+
+.new{
+    background-color: hsl(240, 100%, 5%);
+    color:white;
+    grid-area: new;
+    padding: 1rem;
+    display: grid;
+   
+}
+
+.new>section{
+    padding: 1em 0px;
+    border-bottom: 1px solid white;
+}
+
+.new>section:last-child{
+    border-bottom: none;
+}
+
+.new>h2{
+
+    color: hsl(35, 77%, 62%);
+}
+
+.bottom{
+
+    display: grid;
+    gap: 1em;
+    grid-area: bottom;
+}
+
+.bottom>section{
+    display: flex;
+    gap: 1em;
+    flex-direction: row;
+}
+
+.section-desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
+}
+
+@media screen and (min-width: 800px){
+
+    .mobile-menu{
+        display:none;
+    }
+
+    .section-desc > h3:hover{
+        color: hsl(5, 85%, 63%);
+    }
+    #menu{
+        display:none;
+    }
+    .container{
+        margin-top: 50px;
+    }
+    menu{
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    menu > ul> li{
+        cursor: pointer;
+        transition: color .2s ease;
+        
+    }
+
+    section>h3:hover{
+        color: hsl(35, 77%, 62%);
+    }
+
+    menu > ul > li:hover{
+        color: hsl(35, 77%, 62%);
+    }
+    ul{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        list-style-type: none;
+    }
+    .hero{
+        grid-template-columns: 1fr;
+    }
+
+    .new > h2{
+        margin-top: auto;
+        font-size: 2.5rem;
+    }
+    .new > section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .hero-image{
+
+        content: url('assets/images/image-web-3-desktop.jpg');
+        height:auto;
+        object-fit: cover;
+        max-width: 100%;
+    }
+
+    button{
+        width: 150px;
+        height: auto;
+        padding: 0px;
+    }
+    .hero-content>h1{
+        grid-row:1/3;
+    }
+
+    .hero-content>p{
+        grid-row: 1/2;
+        grid-column: 2/4;
+    }
+    main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container{
+        width: 55vw;
+        grid-template-areas: 'menu menu menu'
+                             'hero hero new'
+                             'hero hero new'
+                             'bottom bottom bottom';
+    }
+
+
+    .bottom{
+        display: flex;
+        flex-direction: row;
+        max-height: 150px;
+    }
+
+    .section-desc{
+        justify-content: space-between;
+
+    }
+
+    .bottom>section{
+        max-height: max-content;
+    }
+
+
+    h1{
+        grid-column: 1/1;
+    }
+}
+
+
+@media screen and (min-width: 280px) and (max-width: 799px){
+
+    #menu{
+        border: none;
+    }
+    .read-more{
+        padding: 1em;
+    }
+    #overlay {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 2;
+        cursor: pointer;
+        
+      }
+
+    
+    .move {
+        animation-name: move;
+        animation-duration: .5s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+
+    .move-close {
+        animation-name: move-close;
+        animation-duration: .5s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+  
+  @keyframes move {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+    
+  }
+
+  @keyframes move-close {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+    
+  }
+
+    .mobile-menu{
+        transition: all 1s ease;
+        display: none;
+        grid-template-rows: 50px 1fr;
+        padding:1em;
+        position: absolute;
+        width: 70vw;
+        height: 100vh;
+        background-color: white;
+        right: 0;
+        z-index: 99;
+        
+    }
+    
+
+    .mobile-menu > img{
+        margin-left:auto;
+    }
+
+    .mobile-menu > ul{
+        padding-inline-start: 0px;
+        list-style-type: none;
+        font-size: 1.25rem;
+        font-weight: 500;
+    }
+
+    .mobile-menu > ul > li{
+        margin: 15px 0;
+    }
+
+    button#menu{
+        background-color:white;
+        background-image: url('assets/images/icon-menu.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: bottom;
+        width: 50px;
+        padding: 0px;
+    }
+    .hero-image{
+        height: auto;
+        max-width: 100%;
+        content: url('assets/images/image-web-3-mobile.jpg');
+    }
+
+    .container{
+        position: relative;
+        padding: 1rem;
+        grid-template-areas: 'menu'
+                             'hero'
+                             'new'
+                             'bottom';
+    }
+
+    main{
+        display: flex;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    menu{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-inline-start: 0px;
+    }
+
+    menu > ul{
+        display: none;
+    }
+    .bottom{
+        flex-direction: column;
+    }
+    .bottom-image{
+        width: 25%;
+        object-fit: cover;
+    }
+    
+    .container{
+        width:100%;
+    }
+
+}
